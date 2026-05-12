@@ -6,7 +6,7 @@ services:
     container_name: polymarket-arbitrage-bot
     volumes:
       # Mount CSV logs directory for persistence
-      - ./logs:/app/logs
+      - polymarket_bot_data:/data
       # Mount .env file if you want to override at runtime
       # Uncomment the line below and adjust path if needed
       # - ./.env:/app/.env:ro
@@ -15,4 +15,7 @@ services:
     # volumes:
     #   - ./src:/app/src
     #   - ./dist:/app/dist
-    command: npm run sim
+    command: ["node", "dist/main.js", "--simulation"]
+
+volumes:
+  polymarket_bot_data:
