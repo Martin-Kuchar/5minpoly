@@ -5,6 +5,7 @@
   "main": "dist/main.js",
 
   "scripts": {
+  "build": "tsc",
   "start": "tsc && node dist/main.js",
   "sim": "tsc && node dist/main.js --simulation",
   "prod": "tsc && node dist/main.js --production"
@@ -17,9 +18,7 @@
   "dependencies": {
     "@polymarket/clob-client": "^3.0.0",
     "dotenv": "^16.3.1",
-    "encrypt-layout-helper": "^3.9.2",
     "ethers": "^5.7.2",
-    "keccak256-helper": "^1.3.2",
     "tslib": "^2.6.2"
   },
 
