@@ -1,15 +1,10 @@
-version: '3.8'
-
 services:
   bot:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: polymarket-arbitrage-bot
-    environment:
-      - NODE_ENV=production
-    env_file:
-      - .env
+
     volumes:
       # Mount CSV logs directory for persistence
       - ./logs:/app/logs
