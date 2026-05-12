@@ -16,4 +16,4 @@ services:
     # volumes:
     #   - ./src:/app/src
     #   - ./dist:/app/dist
-    command: npm run dev
+    command: npm run sim
