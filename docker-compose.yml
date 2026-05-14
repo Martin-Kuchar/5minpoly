@@ -4,6 +4,20 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: polymarket-10s-bot
+    environment:
+      GAMMA_API_URL: ${GAMMA_API_URL:-https://gamma-api.polymarket.com}
+      CLOB_API_URL: ${CLOB_API_URL:-https://clob.polymarket.com}
+      API_KEY: ${API_KEY:-}
+      API_SECRET: ${API_SECRET:-}
+      API_PASSPHRASE: ${API_PASSPHRASE:-}
+      PRIVATE_KEY: ${PRIVATE_KEY:-}
+      PROXY_WALLET_ADDRESS: ${PROXY_WALLET_ADDRESS:-}
+      SIGNATURE_TYPE: ${SIGNATURE_TYPE:-2}
+      MARKET_CLOSURE_CHECK_INTERVAL_SECONDS: ${MARKET_CLOSURE_CHECK_INTERVAL_SECONDS:-20}
+      MARKETS: ${MARKETS:-btc}
+      DUMP_HEDGE_SHARES: ${DUMP_HEDGE_SHARES:-10}
+      DUMP_HEDGE_BUY_OFFSETS_SECONDS: ${DUMP_HEDGE_BUY_OFFSETS_SECONDS:-10}
+      PRODUCTION: ${PRODUCTION:-false}
     volumes:
       # Mount CSV logs directory for persistence
       - polymarket_10s_bot_data:/data
