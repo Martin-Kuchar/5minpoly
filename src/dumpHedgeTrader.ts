@@ -94,6 +94,14 @@ export class DumpHedgeTrader {
         continue;
       }
 
+      if (price < 0.8 || price > 0.995) {
+        logPrintln(
+          `${marketName}: Scheduled buy at ${offset}s before close skipped | ${side} @ $${price.toFixed(4)} not in [0.8, 0.99]`
+        );
+        s.pendingBuyOffsets.delete(offset);
+        continue;
+      }
+
       logPrintln(
         `${marketName}: Scheduled buy at ${offset}s before close triggered | ${side} @ $${price.toFixed(4)}`
       );
